@@ -19,7 +19,8 @@ var configAgenda = {
       postgres : config.postgres,
       defaultLockLifetime : 604800000,
       db: {
-          address: postgresConnStr
+          address: postgresConnStr,
+          collection : 'agenda_test'
           }
     };
 
@@ -73,15 +74,15 @@ agenda.define('CARD_TYPE_EVERY_C', {priority: 'high'}, function(job, done) {
 agenda.on('ready', function() {
 
     //SCHEDULE
-    agenda.schedule('in 10 seconds', 'CARD_TYPE_SCHEDULE', {card_id: '01'});
+    //agenda.schedule('in 10 seconds', 'CARD_TYPE_SCHEDULE', {card_id: '01'});
 
     //NOW
-    agenda.now('CARD_TYPE_NOW' ,{ data : {card_id: '666'}});
+    agenda.now('CARD_TYPE_NOW' ,{ card_id: '666'});
 
     //EVERY
-    agenda.every('15 seconds', 'CARD_TYPE_EVERY_A', { card_id : 'A1'});
-    agenda.every('15 seconds', 'CARD_TYPE_EVERY_B', { card_id : 'B2'});
-    agenda.every('15 seconds', 'CARD_TYPE_EVERY_C', { card_id : 'C3'});
+    //agenda.every('15 seconds', 'CARD_TYPE_EVERY_A', { card_id : 'A1'});
+    //agenda.every('15 seconds', 'CARD_TYPE_EVERY_B', { card_id : 'B2'});
+    //agenda.every('15 seconds', 'CARD_TYPE_EVERY_C', { card_id : 'C3'});
 
     agenda.start();
 
