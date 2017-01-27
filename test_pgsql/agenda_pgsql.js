@@ -35,13 +35,29 @@ agenda.define('CARD_TYPE_SCHEDULE', {priority: 'high', concurrency: 3}, function
   done();
 });
 
-agenda.define('CARD_TYPE_NOW', {priority: 'high'}, function(job, done) {
+agenda.define('1', {priority: 'high'}, function(job, done) {
 
   var now = new Date();
   var data = job.attrs.data;
   console.log("["+ now +"] " + ">>> JOB TYPE [ NOW ] RUN!", data);
 
   done();
+});
+agenda.define('2', {priority: 'high'}, function(job, done) {
+
+    var now = new Date();
+    var data = job.attrs.data;
+    console.log("["+ now +"] " + ">>> JOB TYPE [ NOW ] RUN!", data);
+
+    done();
+});
+agenda.define('3', {priority: 'high'}, function(job, done) {
+
+    var now = new Date();
+    var data = job.attrs.data;
+    console.log("["+ now +"] " + ">>> JOB TYPE [ NOW ] RUN!", data);
+
+    done();
 });
 
 agenda.define('CARD_TYPE_EVERY_A', {priority: 'high'}, function(job, done) {
@@ -77,7 +93,9 @@ agenda.on('ready', function() {
     //agenda.schedule('in 10 seconds', 'CARD_TYPE_SCHEDULE', {card_id: '01'});
 
     //NOW
-    agenda.now('CARD_TYPE_NOW' ,{ card_id: '666'});
+    agenda.now('1' ,{ card_id: '666'});
+    agenda.now('2' ,{ card_id: '333'});
+    agenda.now('3' ,{ card_id: '999'});
 
     //EVERY
     //agenda.every('15 seconds', 'CARD_TYPE_EVERY_A', { card_id : 'A1'});
