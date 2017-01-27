@@ -13,7 +13,7 @@ var config = {};
       idleTimeoutMillis : process.env.POSTGRESDB_IDLE_TIMEOUT || '60000' // how long a client is allowed to remain idle before being closed
     };
 
-var postgresConnStr = 'postgres://'+ config.postgres.user +'@' + config.postgres.host + ':' + config.postgres.port + '/specialist_admin';
+var postgresConnStr = 'postgres://'+ config.postgres.user +'@' + config.postgres.host + ':' + config.postgres.port + '/' + config.database;
 
 var configAgenda = {
       postgres : config.postgres,
