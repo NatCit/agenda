@@ -26,7 +26,7 @@ var configAgenda = {
 
 var agenda = new Agenda(configAgenda);
 
-agenda.define('CARD_TYPE_SCHEDULE', {priority: 'high', concurrency: 3}, function(job, done) {
+agenda.define('ONE_HOURS', {priority: 'high', concurrency: 3}, function(job, done) {
 
   var now = new Date();
   var data = job.attrs.data;
@@ -34,7 +34,7 @@ agenda.define('CARD_TYPE_SCHEDULE', {priority: 'high', concurrency: 3}, function
 
   done();
 });
-
+/*
 agenda.define('1', {priority: 'high'}, function(job, done) {
 
   var now = new Date();
@@ -86,6 +86,7 @@ agenda.define('CARD_TYPE_EVERY_C', {priority: 'high'}, function(job, done) {
 
     done();
 });
+*/
 
 agenda.on('ready', function() {
 
@@ -93,12 +94,12 @@ agenda.on('ready', function() {
     //agenda.schedule('in 10 seconds', 'CARD_TYPE_SCHEDULE', {card_id: '01'});
 
     //NOW
-    agenda.now('1' ,{ card_id: '666'});
-    agenda.now('2' ,{ card_id: '333'});
-    agenda.now('3' ,{ card_id: '999'});
+    //agenda.now('1' ,{ card_id: '666'});
+    //agenda.now('2' ,{ card_id: '333'});
+    //agenda.now('3' ,{ card_id: '999'});
 
     //EVERY
-    //agenda.every('15 seconds', 'CARD_TYPE_EVERY_A', { card_id : 'A1'});
+    agenda.every('1 hours', 'ONE_HOURS', { card_id : '111'});
     //agenda.every('15 seconds', 'CARD_TYPE_EVERY_B', { card_id : 'B2'});
     //agenda.every('15 seconds', 'CARD_TYPE_EVERY_C', { card_id : 'C3'});
 
